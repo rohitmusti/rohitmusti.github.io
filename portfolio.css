@@ -3,6 +3,11 @@
 	src: url('/Fonts/OpenSans-Regular.ttf');
 }
 
+@font-face {
+	font-family: openSansBOLD;
+	src: url('/Fonts/OpenSans-Bold.ttf');
+}
+
 *{
 	padding: 0;
 	margin: 0;
@@ -40,16 +45,13 @@
 }
 
 
-
-
 .container {
   width: 100%;
   height: 100%;
 }
 
 
-
-.second {
+.ABOUT_ME {
 	font-family: openSans;
 	text-align: left;
 	font-size: 200%;
@@ -64,6 +66,12 @@
 
 }
 
+.PORTFOLIO {
+	color: white;
+	font-family: openSansBOLD;
+	text-align: center;
+	font-size: 1000%;
+}
 
 .btn1 {
 	text-align: center;
