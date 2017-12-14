@@ -8,6 +8,11 @@
 	src: url('/Fonts/OpenSans-Bold.ttf');
 }
 
+@font-face {
+	font-family: noteworthy;
+	src: url('/Fonts/Noteworthy.ttc');
+}
+
 *{
 	padding: 0;
 	margin: 0;
@@ -56,9 +61,10 @@ body {
 }
 
 .title {
+	font-family: openSans;
 	float: left;
 	color: red;
-	font-size: 500%;
+	font-size: 600%;
 	text-indent: 10%;
 
 }
@@ -67,7 +73,7 @@ body {
 	float: left;
 	font-family: openSans;
 	text-align: left;
-	font-size: 200%;
+	font-size: 240%;
 	text-indent: 10%;
 
 }
@@ -75,8 +81,6 @@ body {
 .img-circle {
 	float: right;
 	margin: 50 auto;
-	/* border-radius: 50%; */
-	display: inline-block;
 
 }
 
