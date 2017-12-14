@@ -75,7 +75,7 @@ body {
 .img-circle {
 	float: right;
 	margin: 50 auto;
-	border-radius: 50%;
+	/* border-radius: 50%; */
 	display: inline-block;
 
 }
