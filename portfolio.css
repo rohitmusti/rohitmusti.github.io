@@ -22,6 +22,7 @@
 
 .land .welcome {
 	display: table-cell;
+	/* vertical-align: middle; */
 	vertical-align: middle;
 	max-width: none;
 }
@@ -31,9 +32,11 @@
 	text-align: center;
 }
 .content h1 {
+	/* vertical-indent: 90%; */
+	text-indent: 120%;
 	font-family: openSans;
 	color: white;
-	font-size: 200px;
+	font-size: 100px;
 }
 
 
