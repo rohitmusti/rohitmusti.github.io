@@ -1,0 +1,55 @@
+@font-face {
+	font-family: Nickainley;
+	src: url('/Fonts/Nickainley-Normal.otf');
+}
+
+@font-face {
+	font-family: openSans;
+	src: url('/Fonts/OpenSans-Regular.ttf');
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+.land {
+	width: 100%;
+	height: 100%;
+	background-image: url(Images/lander.png);
+	background-repeat:no-repeat;
+	background-size: 100% 100%;
+	background-position: top;
+	background-attachment: fixed;
+}
+
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.nav {
+	font-family: openSans;
+	font-size: 10%;
+}
+
+.welcome {
+	font-family: Nickainley;
+	text-align: center;
+	font-size: 2000%;
+}
+
+.second {
+	font-family: openSans;
+	text-align: left;
+	font-size: 200%;
+	text-indent: 10%;
+
+}
+
+.title {
+	color: red;
+	font-size: 500%;
+	text-indent: 10%;
+
+}
