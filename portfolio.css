@@ -73,8 +73,6 @@ body {
 }
 
 .img-circle {
-	height: 50%;
-	width: 50%;
 	float: right;
 	margin: 50 auto;
 	border-radius: 50%;
@@ -88,9 +86,6 @@ body {
 	text-align: center;
 	font-size: 1000%;
 }
-
-
-
 
 .btn1 {
 	text-align: center;
