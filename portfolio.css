@@ -15,12 +15,34 @@
 .land {
 	width: 100%;
 	height: 100%;
+	margin: auto;
 	background-image: url(Images/lander.png);
 	background-repeat:no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
 	background-position: top;
 	background-attachment: fixed;
+	display: table;
+	top: 0;
 }
+
+.land .welcome {
+	display: table-cell;
+	vertical-align: middle;
+	max-width: none;
+}
+.content {
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+}
+.content h1 {
+	font-family: openSans;
+	color: #F9F3F4;
+	font-size: 200px;
+}
+
+
+
 
 
 .container {
@@ -28,16 +50,7 @@
   height: 100%;
 }
 
-.nav {
-	font-family: openSans;
-	font-size: 10%;
-}
 
-.welcome {
-	font-family: Nickainley;
-	text-align: center;
-	font-size: 2000%;
-}
 
 .second {
 	font-family: openSans;
@@ -51,5 +64,16 @@
 	color: red;
 	font-size: 500%;
 	text-indent: 10%;
+
+}
+
+.btn1 {
+	text-align: center;
+	width:300px;
+	font-family: openSans;
+	font-size: 50pt;
+	border: solid 2px #F3F9F4;
+	border-radius: 50px;
+	padding: 10px 80px
 
 }
