@@ -4,7 +4,7 @@ html {
 body {
   height: 100%;
 }
-.wholeContainer {
+.wrapper {
   height: 100% !important;
   height: 100%;
   margin: 0 auto;
@@ -526,14 +526,6 @@ body.disabled-onepage-scroll .onepage-wrapper section {
 }
 /* scaffolding */
 body {
-  font-family: "Cardo", "Times New Roman", Times, serif;
-  font-size: 16px;
-  line-height: 1.42857143;
-  color: #ffff;
-  background-color: rgb(28, 40, 54);
-}
-
-extra {
   font-family: "Cardo", "Times New Roman", Times, serif;
   font-size: 16px;
   line-height: 1.42857143;
