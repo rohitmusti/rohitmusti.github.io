@@ -1,3 +1,64 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+$(window).load(function(){
+	$('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
 
-},{}]},{},[1])
+
+/******************************************************************************************************************************
+Learn More Page Scroll
+*******************************************************************************************************************************/
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+/******************************************************************************************************************************
+Menu
+*******************************************************************************************************************************/ 
+(function() {
+
+	var bodyEl = document.body,
+		//content = document.querySelector( '.content-wrap' ),
+		openbtn = document.getElementById( 'open-button' ),
+		closebtn = document.getElementById( 'close-button' ),
+		isOpen = false;
+
+	function init() {
+		initEvents();
+	}
+
+	function initEvents() {
+		openbtn.addEventListener( 'click', toggleMenu );
+		if( closebtn ) {
+			closebtn.addEventListener( 'click', toggleMenu );
+		}
+
+		/* close the menu element if the target it´s not the menu element or one of its descendants..
+		content.addEventListener( 'click', function(ev) {
+			var target = ev.target;
+			if( isOpen && target !== openbtn ) {
+				toggleMenu();
+			}
+		} );
+		*/
+	}
+
+	function toggleMenu() {
+		if( isOpen ) {
+			classie.remove( bodyEl, 'show-menu' );
+		}
+		else {
+			classie.add( bodyEl, 'show-menu' );
+		}
+		isOpen = !isOpen;
+	}
+
+	init();
+
+})();
+
+
