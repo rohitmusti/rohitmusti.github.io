@@ -38,6 +38,10 @@ function randomDrink(data) {
   if (tempAverage.length == 3) {
     tempAverage = tempAverage + "0"
   }
+  if (tempAverage[2] == '.') {
+    tempAverage = tempAverage + "0"
+  }
+
 
   ret += `<div id='description'> Average price at this size: `
   ret += `$` + tempAverage
