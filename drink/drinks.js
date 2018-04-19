@@ -2,36 +2,35 @@ function randomDrink(data) {
   var d = new Date();
   var n = d.getTime();
 
-  var ret = `<div id='name'> Drink: `
+  var ret = `<li id='name'> Drink: `
   ret += data[n % data.length].FIELD1
-  ret += `</div>`
+  ret += `</li>`
 
-  ret += `<div id='alc'> Percent Alcohol: `
+  ret += `<li id='alc'> Percent Alcohol: `
   ret += data[n % data.length].FIELD2
-  ret += `</div>`
+  ret += `</li>`
 
-  ret += `<div id='size'> Size (it matters): `
+  ret += `<li id='size'> Size (it matters): `
   ret += data[n % data.length].FIELD3
-  ret += `</div>`
+  ret += `</li>`
 
-  ret += `<div id='price'> Price: `
+  ret += `<li id='price'> Price: `
   ret += data[n % data.length].FIELD4
-  ret += `</div>`
+  ret += `</li>`
 
-  ret += `<div id='description'> Description: `
+  ret += `<li id='description'> Description: `
   ret += data[n % data.length].FIELD5
-  ret += `</div>`
+  ret += `</li>`
 
   return ret;
 }
 
 
-const TEMP = document.getElementById("main")
+const TEMP = document.getElementById("drinks")
 
 window.onload = () => {
 
   retData = randomDrink(drinks)
-  // retData = "michael was here"
 
   TEMP.innerHTML = retData
 
