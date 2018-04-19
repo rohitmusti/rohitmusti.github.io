@@ -11,11 +11,11 @@ function randomDrink(data) {
   ret += `</div>`
 
   ret += `<div id='size'> Size (it matters): `
-  ret += data[n % data.length].FIELD3
+  ret += data[n % data.length].FIELD4
   ret += `</div>`
 
   ret += `<div id='price'> Price: `
-  ret += data[n % data.length].FIELD4
+  ret += data[n % data.length].FIELD3
   ret += `</div>`
 
   ret += `<div id='description'> Description: `
