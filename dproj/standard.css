@@ -3,6 +3,29 @@
             font-family: 'Open Sans', sans-serif;
             color: #ecf0f1;
             background-color:#7f8c8d;
+            text-align: center;
+
+        }
+        h1 {
+        }
+        #drinks {
+          /* text-align: justify; */
+          /* width: 300px;
+          border: 25px solid green; */
+          /* padding: 25px; */
+          /* margin: 25px; */
+          /* padding-left: 30em; */
+          /* background-color: #e67e22; */
+
+
+          background: #fff;
+          border-radius: 2px;
+          display: inline-block;
+          color: #7f8c8d;
+          text-align: justify;
+          margin: 1rem;
+          position: relative;
+          width: 300px;
         }
 
         body p {
