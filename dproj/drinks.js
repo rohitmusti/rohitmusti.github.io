@@ -1,25 +1,48 @@
 function randomDrink(data) {
   var d = new Date();
-  var n = d.getTime();
+  var l = data.length
+  var n = d.getTime() % l;
+  var sum = Math.floor(0);
+  var tick = 0;
 
   var ret = `<div id='name'> Drink: `
-  ret += data[n % data.length].FIELD1
+  ret += data[n].FIELD1
   ret += `</div>`
 
   ret += `<div id='alc'> Percent Alcohol: `
-  ret += data[n % data.length].FIELD2
+  ret += data[n].FIELD2
   ret += `</div>`
 
   ret += `<div id='size'> Size (it matters): `
-  ret += data[n % data.length].FIELD4
+  ret += data[n].FIELD4
   ret += `</div>`
 
   ret += `<div id='price'> Price: `
-  ret += data[n % data.length].FIELD3
+  ret += data[n].FIELD3
   ret += `</div>`
 
   ret += `<div id='description'> Description: `
-  ret += data[n % data.length].FIELD5
+  ret += data[n].FIELD5
+  ret += `</div>`
+
+  for (i = 0; i < l; i++) {
+    if (data[i].FIELD4 == data[n].FIELD4) {
+      sum += Number(data[i].FIELD3.substr(1, data[i].FIELD3.length));
+      tick++;
+      // console.log(data[i].FIELD3.substr(1, data[i].FIELD3.length))
+
+    }
+  }
+  var tempAverage = (sum/tick).toString()
+  if (tempAverage.length > 5) {
+    tempAverage = tempAverage.substr(0, 4)
+  }
+  if (tempAverage.length == 3) {
+    tempAverage = tempAverage + "0"
+  }
+
+  ret += `<div id='description'> Average price at this size: `
+  ret += `$` + tempAverage
   ret += `</div>`
 
   return ret;
