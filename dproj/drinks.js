@@ -23,14 +23,12 @@ function randomDrink(data) {
 
   ret += `<div id='description'> Description: `
   ret += data[n].FIELD5
-  ret += `</div>`
+  ret += `</div> <br/>`
 
   for (i = 0; i < l; i++) {
     if (data[i].FIELD4 == data[n].FIELD4) {
       sum += Number(data[i].FIELD3.substr(1, data[i].FIELD3.length));
       tick++;
-      // console.log(data[i].FIELD3.substr(1, data[i].FIELD3.length))
-
     }
   }
   var tempAverage = (sum/tick).toString()
