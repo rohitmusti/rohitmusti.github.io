@@ -2,7 +2,7 @@ function randomDrink(data) {
   var d = new Date();
   var n = d.getTime();
 
-  var ret = `<div id='name'> Drink: `
+  var ret = `<div id='name'> Changed: `
   ret += data[n % data.length].FIELD1
   ret += `</div>`
 
