@@ -23,7 +23,8 @@
           display: inline-block;
           color: #7f8c8d;
           text-align: justify;
-          margin: 1rem;
+          margin: 1em;
+          padding: .75em;
           position: relative;
           width: 300px;
         }
