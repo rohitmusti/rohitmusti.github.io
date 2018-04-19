@@ -8,23 +8,23 @@ function randomDrink(data) {
   var sum = Math.floor(0);
   var tick = 0;
 
-  var ret = `<div id='name'> Drink: `
+  var ret = `<div id='name'> <strong>Drink</strong>: `
   ret += data[n].FIELD1
   ret += `</div>`
 
-  ret += `<div id='alc'> Percent Alcohol: `
+  ret += `<div id='alc'> <strong>Percent Alcohol</strong>: `
   ret += data[n].FIELD2
   ret += `</div>`
 
-  ret += `<div id='size'> Size (it matters): `
+  ret += `<div id='size'> <strong>Size (it matters)</strong>: `
   ret += data[n].FIELD4
   ret += `</div>`
 
-  ret += `<div id='price'> Price: `
+  ret += `<div id='price'> <strong>Price</strong>: `
   ret += data[n].FIELD3
   ret += `</div>`
 
-  ret += `<div id='description'> Description: `
+  ret += `<div id='description'> <strong>Description</strong>: `
   ret += data[n].FIELD5
   ret += `</div> <br/>`
 
