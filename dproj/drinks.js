@@ -46,9 +46,9 @@ function randomDrink(data) {
   }
 
 
-  ret += `<div id='description'> Average price at this size: `
+  ret += `<p> Average price at this size: `
   ret += `$` + tempAverage
-  ret += `</div>`
+  ret += `</p>`
 
   TEMP.innerHTML = ret
 }
