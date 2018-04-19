@@ -1,3 +1,6 @@
+const TEMP = document.getElementById("drinks")
+
+
 function randomDrink(data) {
   var d = new Date();
   var l = data.length
@@ -47,16 +50,5 @@ function randomDrink(data) {
   ret += `$` + tempAverage
   ret += `</div>`
 
-  return ret;
-}
-
-
-const TEMP = document.getElementById("drinks")
-
-window.onload = () => {
-
-  retData = randomDrink(drinks)
-
-  TEMP.innerHTML = retData
-
+  TEMP.innerHTML = ret
 }
