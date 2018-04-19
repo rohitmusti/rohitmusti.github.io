@@ -2,25 +2,25 @@ function randomDrink(data) {
   var d = new Date();
   var n = d.getTime();
 
-  var ret = `<li id='name'> Drink: `
+  var ret = `<div id='name'> Drink: `
   ret += data[n % data.length].FIELD1
-  ret += `</li>`
+  ret += `</div>`
 
-  ret += `<li id='alc'> Percent Alcohol: `
+  ret += `<div id='alc'> Percent Alcohol: `
   ret += data[n % data.length].FIELD2
-  ret += `</li>`
+  ret += `</div>`
 
-  ret += `<li id='size'> Size (it matters): `
+  ret += `<div id='size'> Size (it matters): `
   ret += data[n % data.length].FIELD3
-  ret += `</li>`
+  ret += `</div>`
 
-  ret += `<li id='price'> Price: `
+  ret += `<div id='price'> Price: `
   ret += data[n % data.length].FIELD4
-  ret += `</li>`
+  ret += `</div>`
 
-  ret += `<li id='description'> Description: `
+  ret += `<div id='description'> Description: `
   ret += data[n % data.length].FIELD5
-  ret += `</li>`
+  ret += `</div>`
 
   return ret;
 }
