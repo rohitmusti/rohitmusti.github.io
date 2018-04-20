@@ -61,7 +61,7 @@ function cheapDrink(data) {
   var sum = Math.floor(0);
   var tick = 0;
 
-  while (Number(data[n].FIELD3.substr(1, data[n].FIELD3.length)) > 7) {
+  while (Number(data[n].FIELD3.substr(1, data[n].FIELD3.length)) >= 7) {
     n++;
   }
 
