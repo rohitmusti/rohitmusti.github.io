@@ -1,0 +1,13 @@
+a,h3,strong{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+	color: white;
+}
+a:hover,strong:hover{
+  transition:0.5s color ease;
+	color:#d73444;
+}
+p {
+  color: #626262;
+  line-height: 20px;
+}
