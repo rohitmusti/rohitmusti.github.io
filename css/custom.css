@@ -43,6 +43,19 @@ body {
 .about_div h3 {
   font-weight: bold;
 }
-.contact_div a {
+
+/* HOW I BUILT THIS SITE STYLING */
+
+.hibts_div {
+  padding: 50px;
+  max-width: 750px;"
+}
+.hibts_div h1 {
+  color: white;
+}
+.hibts_div h3 {
+  color: #626262;
+}
+.hibts_div a {
   font-weight: bold;
 }
