@@ -2,15 +2,6 @@
 
 /* GENERAL STYLING */
 
-a,h3,strong{
-  -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
-	color: white;
-}
-a:hover,strong:hover{
-  transition:0.5s color ease;
-	color:#d73444;
-}
 p {
   color: #626262;
   line-height: 20px;
@@ -58,4 +49,27 @@ body {
 }
 .hibts_div a {
   font-weight: bold;
+}
+
+/* PORTFOLIO STYLING */
+
+.portfolio_div {
+  padding: 50px;
+  max-width: 750px;"
+  color: white;
+}
+.portfolio_div h1, a {
+  color: white;
+}
+.portfolio_div h3 {
+  font-weight: bold;
+  color: white;
+}
+.portfolio_div h3:hover, a:hover{
+  transition:0.5s color ease;
+	color:#d73444;
+}
+.portfolio h3{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
 }
