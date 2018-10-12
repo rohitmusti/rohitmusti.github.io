@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+/* GENERAL STYLING */
+
 a,h3,strong{
   -webkit-backface-visibility:hidden;
           backface-visibility:hidden;
@@ -11,7 +15,6 @@ p {
   color: #626262;
   line-height: 20px;
 }
-
 body {
   background-color: black;
 }
@@ -23,6 +26,22 @@ body {
 }
 .contact_div h3 {
   color: #626262;
+}
+.contact_div a {
+  font-weight: bold;
+}
+
+/* ABOUT STYLING */
+
+.about_div {
+  padding: 50px;
+  max-width: 750px;"
+}
+.about_div h1 {
+  color: white;
+}
+.about_div h3 {
+  font-weight: bold;
 }
 .contact_div a {
   font-weight: bold;
