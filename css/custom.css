@@ -11,3 +11,19 @@ p {
   color: #626262;
   line-height: 20px;
 }
+
+body {
+  background-color: black;
+}
+
+/* CONTACT STYLING */
+
+.contact_div {
+  padding: 50px;
+}
+.contact_div h3 {
+  color: #626262;
+}
+.contact_div a {
+  font-weight: bold;
+}
