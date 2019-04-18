@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/rohitmusti
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://rohitmusti.dev
+  * I am rohitmusti (https://keybase.io/rohitmusti) on keybase.
+  * I have a public key ASDcwHlZOTb7U21IE_PNrBye4DOy0226eJ8LoZyAt8yblwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120dcc079593936fb536d4813f3cdac1c9ee033b2d36dba789f0ba19c80b7cc9b970a",
+      "host": "keybase.io",
+      "kid": "0120dcc079593936fb536d4813f3cdac1c9ee033b2d36dba789f0ba19c80b7cc9b970a",
+      "uid": "9c0842220d108aaf67e79f816d18df19",
+      "username": "rohitmusti"
+    },
+    "merkle_root": {
+      "ctime": 1555613359,
+      "hash": "29491bfd344b94530ca5230ea0053ae04d8a7b6214649d6bf1c970f01aac03b5c237ec1b7b632c021d43789c50143ecadd4976d68eff069095b26af9330bca82",
+      "hash_meta": "18ba491ab912ef3fff84626a00e66d308c8f9d191dc075786f3cf157d9b9f640",
+      "seqno": 5200859
+    },
+    "service": {
+      "entropy": "ZfG5bVdDbKZuRVO/F8xUz1AJ",
+      "hostname": "rohitmusti.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.2.2"
+  },
+  "ctime": 1555613368,
+  "expire_in": 504576000,
+  "prev": "d1a0b8071987a57bffba049b145b0960900bd43d70fd02b945a0bd0c0a2eea3e",
+  "seqno": 8,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg3MB5WTk2+1NtSBPzzawcnuAzstNtunifC6GcgLfMm5cKp3BheWxvYWTESpcCCMQg0aC4BxmHpXv/ugSbFFsJYJAL1D1w/QK5RaC9DAou6j7EIG6ZwLiC2ebzHZwLQMMkhJuIGcJkrKrqRvGvm/lMynxyAgHCo3NpZ8RAFgSlf1SnodI2QpfzcffdC6lHYkNUoML7/cbmufF7PbBDP8/IoU120Q45VislCXmvphSsax741/CwrEXaxyBoB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIEfySiWQjXwK6M4WELXyvRNllNn27sMunU0jJyKZ2840o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rohitmusti
+
+==================================================================
