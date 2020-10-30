@@ -1,0 +1,32 @@
+{
+  "home": {
+    "lat": 39.162,
+    "lng": -84.45689,
+    "description": "I grew up in Cincinnati, Ohio. As a young child I would spend my days either buried in books or playing tennis. Growing up, I claimed to resent the piano lessons my mom took me to (secretly, I enjoyed them but don't tell her that). In high school I lost all 3 student government races I ran for, but discovered a love for mock trial.",
+    "type": "mainLocations"
+  },
+  "calgary": {
+    "lat": 51.049999,
+    "lng": -114.066666,
+    "description": "Calgary is where my mom grew up and where me and my younger sister would spend part of our summers. I fondly remember the Calgary Stampede (the world's greatest rodeo) and the accompanying pancake breakfasts. Banff and the olympic park were other consistent highlights!",
+    "type": "mainLocations"
+  },
+  "college": {
+    "lat": 38.02931,
+    "lng": -78.47668,
+    "description": "I went to college at the University of Virginia in Charlottesville! One of the highlights of my experience was living at 5 West Range, 4 doors down from where Edgar Allen Poe lived, wrote, and gambled as a student!",
+    "type": "mainLocations"
+  },
+  "internships": {
+    "lat": 42.373611,
+    "lng": -71.110558,
+    "description": "I spent a couple summer in Cambridge, Massachussettes interning with Red Hat. It was a great chance to learn and grow!",
+    "type": "mainLocations"
+  },
+  "firstJob": {
+    "lat": 38.89511,
+    "lng": -77.03637,
+    "description": "Washington, D.C. is where I live now. I moved here during the Great Pandemic of 2020 and never actually been to my office. In my world, DC is a quiet city with light traffic and pleasant bike rides. My favorite place in DC is the National Arboretum and is my first recommendation to any visitor. Currently, I work at American Forests as the Senior Manager of Data Science.",
+    "type": "mainLocations"
+  }
+}
