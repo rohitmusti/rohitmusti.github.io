@@ -1,7 +1,8 @@
 import "./App.css";
 import { Map, TileLayer } from "react-leaflet";
-import { Component } from "react";
+import { Fragment, Component } from "react";
 import marker from "./components/marker";
+import { Card } from "antd";
 
 class App extends Component {
   constructor(props) {
@@ -24,19 +25,30 @@ class App extends Component {
     ];
 
     return (
-      <Map
-        className="map"
-        center={position}
-        zoom={this.state.landingLocation.zoom}
-      >
-        <TileLayer
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
-        />
-        {Object.keys(this.state.places).map((key, index) => {
-          return marker(this.state.places[key]);
-        })}
-      </Map>
+      <Fragment>
+        <Card
+          className="tile"
+          title="Default size card"
+          extra={<a href="#">More</a>}
+        >
+          <p>Card content</p>
+          <p>Card content</p>
+          <p>Card content</p>
+        </Card>
+        <Map
+          className="map"
+          center={position}
+          zoom={this.state.landingLocation.zoom}
+        >
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
+          />
+          {Object.keys(this.state.places).map((key, index) => {
+            return marker(this.state.places[key]);
+          })}
+        </Map>
+      </Fragment>
     );
   }
 }
