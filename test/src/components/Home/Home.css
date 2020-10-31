@@ -15,7 +15,7 @@ body {
 }
 
 .navTile {
-  width: 400px;
+  width: 20%;
   position: absolute !important;
   right: 10px;
   top: 10px;
@@ -23,7 +23,7 @@ body {
 }
 
 .interestTile {
-  width: 400px;
+  width: 20%;
   position: absolute !important;
   right: 10px;
   top: 220px;

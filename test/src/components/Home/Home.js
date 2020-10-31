@@ -2,7 +2,7 @@ import "./Home.css";
 import { Map, TileLayer } from "react-leaflet";
 import { Fragment, Component } from "react";
 import { Mymarker } from "../Marker/marker";
-import { Card } from "antd";
+import { Card, Button } from "antd";
 
 class Home extends Component {
   constructor(props) {
@@ -36,9 +36,39 @@ class Home extends Component {
     });
   };
 
+  onMoveHandler(event) {
+    console.log(`current center: ${event.target.getCenter()}`);
+    return event.target.getCenter();
+  }
+
   capitalize = (s) => {
     if (typeof s !== "string") return "";
     return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+
+  getNextPlace = (position) => {
+    this.onIconClickHandler(Object.keys(this.state.places)[position + 1]);
+  };
+
+  getPrevPlace = (position) => {
+    this.onIconClickHandler(Object.keys(this.state.places)[position - 1]);
+  };
+
+  startHereHandler = () => {
+    const oldLandingLocation = this.state.landingLocation;
+    const pointOfInterest = {
+      key: "Cincinnati",
+      ...this.state.places["Cincinnati"],
+    };
+    const newLandingLocation = {
+      lat: pointOfInterest.lat,
+      lng: pointOfInterest.lng,
+      zoom: 13,
+    };
+    this.setState({
+      landingLocation: newLandingLocation,
+      currentPointOfInterest: pointOfInterest,
+    });
   };
 
   render() {
@@ -51,7 +81,7 @@ class Home extends Component {
       <Fragment>
         <Card
           className="navTile"
-          title="Hi, My name is Rohit! This is a new check"
+          title="Hi, My name is Rohit!"
           extra={
             <a href="https://rohitmusti.github.io/resume/rmusti_resume.pdf">
               My Resume
@@ -60,7 +90,10 @@ class Home extends Component {
         >
           <p>
             Click on the various pop ups to learn a little bit more about my
-            life!
+            life! Try{" "}
+            <a onClick={() => this.onIconClickHandler("Cincinnati")}>
+              starting here
+            </a>
           </p>
           <p>
             Check out my portfolio of projects{" "}
@@ -72,7 +105,40 @@ class Home extends Component {
             className="interestTile"
             title={`${this.capitalize(this.state.currentPointOfInterest.key)}`}
           >
-            <p>{this.state.currentPointOfInterest.description}</p>
+            <p>
+              {this.state.currentPointOfInterest.description}{" "}
+              {this.state.currentPointOfInterest.order ===
+              Object.keys(this.state.places).length - 1
+                ? "true"
+                : "false"}
+            </p>
+            {
+              <Button
+                disabled={
+                  this.state.currentPointOfInterest.order === 0 ? true : false
+                }
+                onClick={() =>
+                  this.getPrevPlace(this.state.currentPointOfInterest.order)
+                }
+              >
+                Previous
+              </Button>
+            }
+            {
+              <Button
+                disabled={
+                  this.state.currentPointOfInterest.order ===
+                  Object.keys(this.state.places).length - 1
+                    ? true
+                    : false
+                }
+                onClick={() =>
+                  this.getNextPlace(this.state.currentPointOfInterest.order)
+                }
+              >
+                Next
+              </Button>
+            }
           </Card>
         )}
 
@@ -80,6 +146,8 @@ class Home extends Component {
           className="map"
           center={position}
           zoom={this.state.landingLocation.zoom}
+          animate={true}
+          onmoveend={this.onMoveHandler.bind(this)}
         >
           <TileLayer
             attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>; Map data;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -92,6 +160,7 @@ class Home extends Component {
             };
             return (
               <Mymarker
+                id={String(currentSpot.order)}
                 key={key}
                 onClick={this.onIconClickHandler}
                 currentSpot={currentSpot}
