@@ -7,7 +7,7 @@ import { Card } from "antd";
 class App extends Component {
   constructor(props) {
     super(props);
-    let placesData = require("./data/places.json");
+    let placesData = require("./assets/places.json");
     this.state = {
       landingLocation: {
         lat: 41.850033,
