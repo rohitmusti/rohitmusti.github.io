@@ -14,19 +14,31 @@ class App extends Component {
         lng: -87.6500523,
         zoom: 4,
       },
+      currentPointOfInterest: null,
       places: placesData,
     };
   }
 
   onIconClickHandler = (positionTagKey) => {
     const oldLandingLocation = this.state.landingLocation;
-    const counterClicked = this.state.places[positionTagKey];
+    const pointOfInterest = {
+      key: positionTagKey,
+      ...this.state.places[positionTagKey],
+    };
     const newLandingLocation = {
-      lat: counterClicked.lat,
-      lng: counterClicked.lng,
+      lat: pointOfInterest.lat,
+      lng: pointOfInterest.lng,
       zoom: 13,
     };
-    this.setState({ landingLocation: newLandingLocation });
+    this.setState({
+      landingLocation: newLandingLocation,
+      currentPointOfInterest: pointOfInterest,
+    });
+  };
+
+  capitalize = (s) => {
+    if (typeof s !== "string") return "";
+    return s.charAt(0).toUpperCase() + s.slice(1);
   };
 
   render() {
@@ -38,7 +50,7 @@ class App extends Component {
     return (
       <Fragment>
         <Card
-          className="tile"
+          className="navTile"
           title="Hi, My name is Rohit!"
           extra={
             <a href="https://rohitmusti.github.io/resume/rmusti_resume.pdf">
@@ -55,6 +67,15 @@ class App extends Component {
             <a href="https://rohitmusti.github.io/portfolio">here</a>{" "}
           </p>
         </Card>
+        {this.state.currentPointOfInterest && (
+          <Card
+            className="interestTile"
+            title={`${this.capitalize(this.state.currentPointOfInterest.key)}`}
+          >
+            <p>{this.state.currentPointOfInterest.description}</p>
+          </Card>
+        )}
+
         <Map
           className="map"
           center={position}

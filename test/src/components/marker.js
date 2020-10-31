@@ -17,9 +17,7 @@ export class Mymarker extends Component {
         onclick={() => this.props.onClick(this.props.currentSpot.key)}
         position={[this.props.currentSpot.lat, this.props.currentSpot.lng]}
         icon={myIcon}
-      >
-        <Popup>{this.props.currentSpot.description}</Popup>
-      </Marker>
+      />
     );
   }
 }

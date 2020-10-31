@@ -15,10 +15,18 @@ body {
   height: 100%;
 }
 
-.tile {
+.navTile {
   width: 400px;
   position: absolute !important;
   right: 10px;
   top: 10px;
+  z-index: 1000;
+}
+
+.interestTile {
+  width: 400px;
+  position: absolute !important;
+  right: 10px;
+  top: 220px;
   z-index: 1000;
 }
