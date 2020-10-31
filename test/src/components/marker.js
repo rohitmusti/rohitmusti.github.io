@@ -10,10 +10,11 @@ const myIcon = L.icon({
 
 export class Mymarker extends Component {
   state = {};
+
   render() {
     return (
       <Marker
-        key={this.props.currentSpot.order}
+        onclick={() => this.props.onClick(this.props.currentSpot.key)}
         position={[this.props.currentSpot.lat, this.props.currentSpot.lng]}
         icon={myIcon}
       >

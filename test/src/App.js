@@ -18,6 +18,17 @@ class App extends Component {
     };
   }
 
+  onIconClickHandler = (positionTagKey) => {
+    const oldLandingLocation = this.state.landingLocation;
+    const counterClicked = this.state.places[positionTagKey];
+    const newLandingLocation = {
+      lat: counterClicked.lat,
+      lng: counterClicked.lng,
+      zoom: 13,
+    };
+    this.setState({ landingLocation: newLandingLocation });
+  };
+
   render() {
     const position = [
       this.state.landingLocation.lat,
@@ -56,7 +67,17 @@ class App extends Component {
             url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
           />
           {Object.keys(this.state.places).map((key, index) => {
-            return <Mymarker key={key} currentSpot={this.state.places[key]} />;
+            let currentSpot = {
+              key: key,
+              ...this.state.places[key],
+            };
+            return (
+              <Mymarker
+                key={key}
+                onClick={this.onIconClickHandler}
+                currentSpot={currentSpot}
+              />
+            );
           })}
         </Map>
       </Fragment>
