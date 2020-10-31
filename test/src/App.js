@@ -28,12 +28,21 @@ class App extends Component {
       <Fragment>
         <Card
           className="tile"
-          title="Default size card"
-          extra={<a href="#">More</a>}
+          title="Hi, My name is Rohit!"
+          extra={
+            <a href="https://rohitmusti.github.io/resume/rmusti_resume.pdf">
+              My Resume
+            </a>
+          }
         >
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
+          <p>
+            Click on the various pop ups to learn a little bit more about my
+            life!
+          </p>
+          <p>
+            Check out my portfolio of projects{" "}
+            <a href="https://rohitmusti.github.io/portfolio">here</a>{" "}
+          </p>
         </Card>
         <Map
           className="map"
@@ -41,8 +50,10 @@ class App extends Component {
           zoom={this.state.landingLocation.zoom}
         >
           <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
+            // attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            // url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
+            attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>; Map data;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
           />
           {Object.keys(this.state.places).map((key, index) => {
             return marker(this.state.places[key]);
