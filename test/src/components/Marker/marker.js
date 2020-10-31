@@ -1,7 +1,7 @@
 import { Marker, Popup } from "react-leaflet";
 import { Component } from "react";
 import L from "leaflet";
-import locationPin from "../assets/icons8-map-pin-100.png";
+import locationPin from "../../assets/icons8-map-pin-100.png";
 
 const myIcon = L.icon({
   iconUrl: locationPin,
