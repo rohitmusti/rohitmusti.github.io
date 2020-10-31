@@ -1,7 +1,7 @@
 import "./App.css";
 import { Map, TileLayer } from "react-leaflet";
 import { Fragment, Component } from "react";
-import marker from "./components/marker";
+import { Mymarker } from "./components/marker";
 import { Card } from "antd";
 
 class App extends Component {
@@ -56,7 +56,7 @@ class App extends Component {
             url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
           />
           {Object.keys(this.state.places).map((key, index) => {
-            return marker(this.state.places[key]);
+            return <Mymarker key={key} currentSpot={this.state.places[key]} />;
           })}
         </Map>
       </Fragment>

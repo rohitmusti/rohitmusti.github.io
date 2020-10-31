@@ -1,11 +1,16 @@
 import { Marker, Popup } from "react-leaflet";
+import { Component } from "react";
 
-function marker(currentSpot) {
-  return (
-    <Marker position={[currentSpot.lat, currentSpot.lng]}>
-      <Popup>{currentSpot.description}</Popup>
-    </Marker>
-  );
+export class Mymarker extends Component {
+  state = {};
+  render() {
+    return (
+      <Marker
+        key={this.props.currentSpot.order}
+        position={[this.props.currentSpot.lat, this.props.currentSpot.lng]}
+      >
+        <Popup>{this.props.currentSpot.description}</Popup>
+      </Marker>
+    );
+  }
 }
-
-export default marker;
