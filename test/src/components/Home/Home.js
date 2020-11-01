@@ -99,8 +99,7 @@ class Home extends Component {
             .
           </p>
           <p>
-            Check out my portfolio of projects{" "}
-            <a href="https://rohitmusti.github.io/portfolio">here</a>.
+            Check out my portfolio of projects <a href="/portfolio">here</a>.
           </p>
         </Card>
         {this.state.currentPointOfInterest && (

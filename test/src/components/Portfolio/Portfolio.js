@@ -1,9 +1,11 @@
 import "./Portfolio.css";
 import { Fragment, Component } from "react";
-import { Card, Col, Row, Carousel } from "antd";
+import { Collapse, PageHeader, Button } from "antd";
 
-function onChange(a, b, c) {
-  console.log(a, b, c);
+const { Panel } = Collapse;
+
+function callback(key) {
+  console.log(key);
 }
 
 class Portfolio extends Component {
@@ -18,17 +20,40 @@ class Portfolio extends Component {
   render() {
     let prep = [];
     Object.keys(this.state.projects).map((key, index) => {
-      let currentProj = this.state.projects[key];
+      const currentProj = this.state.projects[key];
+      console.log(currentProj.description);
       prep.push(
-        <div className="contentStyle">
-          <h3>{currentProj.name}</h3>
-          <a href={currentProj.link}>Link</a>
-          <p style={{ color: "white" }}>{currentProj.description}</p>
-        </div>
+        <Panel header={currentProj.name} key={index}>
+          <p>
+            <strong>Description:</strong> {currentProj.description}
+          </p>
+          <p>
+            <strong>
+              <a href={currentProj.link}>Link</a>
+            </strong>{" "}
+            to the project!
+          </p>
+        </Panel>
       );
     });
 
-    return <Carousel afterChange={onChange}>{prep}</Carousel>;
+    return (
+      <Fragment>
+        <PageHeader
+          style={{
+            border: "1px solid rgb(235, 237, 240)",
+          }}
+          title="Portfolio of Projects"
+          subTitle="This is a list of my favorite projects. If you are interested in seeing more, checkout my github!"
+          extra={[
+            <Button type="danger" key="3" href="https://github.com/rohitmusti">
+              My Github
+            </Button>,
+          ]}
+        />
+        <Collapse onChange={callback}>{prep}</Collapse>
+      </Fragment>
+    );
   }
 }
 

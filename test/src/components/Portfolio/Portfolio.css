@@ -1,4 +1,4 @@
-@import "~antd/dist/antd.css";
+/* @import "~antd/dist/antd.dark.css"; */
 
 body {
   margin: 0px;
@@ -10,18 +10,6 @@ body {
   height: 100%;
 }
 
-.contentStyle {
-  height: 100vh;
-  color: #fff;
-  line-height: 100vh;
-  text-align: center;
-  background-color: black;
-}
-
-.contentStyle h3,
-p,
-a {
-  color: #fff;
-  text-align: center;
-  z-index: 1000;
+#root a {
+  color: red;
 }

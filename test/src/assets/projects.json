@@ -21,7 +21,7 @@
   },
   "Personal Website": {
     "name": "Personal Website",
-    "description": "I was hoping to create a more personal and interactive portfolio page to help others get to know me and my work. I built it all from scratch using React, Leaflet, and Antd design elements. I hope you enjoy!",
+    "description": "I was hoping to create a more personal and interactive portfolio page to help others get to know me and my work. My old websites relied on pre-built templates and design patterns that didn't reflect my personality. I think this website is the first of one that truly reflects my personality. I built it all from scratch using React, Leaflet, and Antd design elements. I hope you enjoy!",
     "link": "https://rohitmusti.github.io/"
   }
 }
