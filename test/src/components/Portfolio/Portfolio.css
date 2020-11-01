@@ -10,22 +10,18 @@ body {
   height: 100%;
 }
 
-.map {
-  height: 100%;
+.contentStyle {
+  height: 100vh;
+  color: #fff;
+  line-height: 100vh;
+  text-align: center;
+  background-color: black;
 }
 
-.navTile {
-  width: 400px;
-  position: absolute !important;
-  right: 10px;
-  top: 10px;
-  z-index: 1000;
-}
-
-.interestTile {
-  width: 400px;
-  position: absolute !important;
-  right: 10px;
-  top: 220px;
+.contentStyle h3,
+p,
+a {
+  color: #fff;
+  text-align: center;
   z-index: 1000;
 }

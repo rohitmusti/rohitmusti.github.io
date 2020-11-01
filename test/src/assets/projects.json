@@ -1,0 +1,27 @@
+{
+  "resume": {
+    "name": "Resume",
+    "description": "I developed and open sourced this Latex based resume template. Latex is free and open source and I wanted to create a template anyone can use to create a professional resume, without having to pay or download expensive graphic design software.",
+    "link": "https://github.com/rohitmusti/resume"
+  },
+  "Courts Data Project": {
+    "name": "SCOUT (State COUrt Trial) Data",
+    "description": "The court data project is the product of a partnership between the CommPAS Lab at the Batten School (through Michele Claibourn), the UVA Library (through Michele Claibourn), the Legal Data Lab at UVA Law School (through Jon Ashley), and the Computer Science Department (through Jack Davidson and the students developing the project). This is an open source project to scrape and publish data from US courts. This information is already publicly available and when organized well, can lead to important reporting and holding the government accountable. We recognize the importantance of preserving as much anonymity as possible in this work and are developing it with the public's interest at mind. In particular, we are focusing on marginalized communities and ensuring that we do not create a digital system that exploits or overly surveils them.",
+    "link": "https://github.com/rohitmusti/courts-data-project"
+  },
+  "Digital Governance Lab": {
+    "name": "Digital Governance Lab",
+    "description": "A fellow graduate student and I built and taught this one credit class exploring the challenges around digital governance (technology of governance and governance of technology). The class was part critical analysis seminar and part creative project building. I am extremely proud of this curriculum and I hope you check it out",
+    "link": "https://digitalgovlab.github.io/Fall2019/"
+  },
+  "Tree Equity Score": {
+    "name": "Tree Equity Score",
+    "description": "In my work at American Forests I helped Chris David oversee and launch this tool. I worked on both the data analysis and the actual website engineering. It was a great chance to explore the role of project manager, data analyst, and software engineer in my first 6 months at American Forests.",
+    "link": "https://treeequityscore.org/"
+  },
+  "Personal Website": {
+    "name": "Personal Website",
+    "description": "I was hoping to create a more personal and interactive portfolio page to help others get to know me and my work. I built it all from scratch using React, Leaflet, and Antd design elements. I hope you enjoy!",
+    "link": "https://rohitmusti.github.io/"
+  }
+}
