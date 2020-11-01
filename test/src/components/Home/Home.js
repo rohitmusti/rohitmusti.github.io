@@ -85,9 +85,9 @@ class Home extends Component {
           className="navTile"
           title="Hi, my name is Rohit!"
           extra={
-            <a href="https://rohitmusti.github.io/resume/rmusti_resume.pdf">
-              My Resume
-            </a>
+            <Button type="primary" href="/portfolio">
+              My Portfolio
+            </Button>
           }
         >
           <p>
@@ -99,7 +99,11 @@ class Home extends Component {
             .
           </p>
           <p>
-            Check out my portfolio of projects <a href="/portfolio">here</a>.
+            Check out my resume{" "}
+            <a href="https://rohitmusti.github.io/resume/rmusti_resume.pdf">
+              here
+            </a>
+            .
           </p>
           <p>
             Check out my LinkedIn{" "}
