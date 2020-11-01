@@ -48,10 +48,13 @@ class Portfolio extends Component {
           title="Portfolio of Projects"
           subTitle="This is a list of my favorite projects. If you are interested in seeing more, checkout my github!"
           extra={[
+            <Button type="primary" style={{ color: "white" }} key="3" href="/">
+              Go Home
+            </Button>,
             <Button
-              type="danger"
+              type="primary"
               style={{ color: "white" }}
-              key="3"
+              key="4"
               href="https://github.com/rohitmusti"
             >
               My Github

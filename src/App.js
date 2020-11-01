@@ -4,14 +4,7 @@ import Portfolio from "./components/Portfolio/Portfolio";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/portfolio" component={Portfolio} />
-        <Route path="/" component={Home} />
-      </Switch>
-    </Router>
-  );
+  return <Home />;
 }
 
 export default App;
