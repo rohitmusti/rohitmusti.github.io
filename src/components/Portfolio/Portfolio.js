@@ -29,9 +29,7 @@ class Portfolio extends Component {
           </p>
           <p>
             <strong>
-              <a href={currentProj.link} style={{ color: "red" }}>
-                Link
-              </a>
+              <a href={currentProj.link}>Link</a>
             </strong>{" "}
             to the project!
           </p>
@@ -40,7 +38,7 @@ class Portfolio extends Component {
     });
 
     return (
-      <Fragment>
+      <div className="portfolio-wrapper">
         <PageHeader
           style={{
             border: "1px solid rgb(235, 237, 240)",
@@ -62,7 +60,7 @@ class Portfolio extends Component {
           ]}
         />
         <Collapse onChange={callback}>{prep}</Collapse>
-      </Fragment>
+      </div>
     );
   }
 }
