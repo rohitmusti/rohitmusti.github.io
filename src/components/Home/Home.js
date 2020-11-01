@@ -20,7 +20,6 @@ class Home extends Component {
   }
 
   onIconClickHandler = (positionTagKey) => {
-    const oldLandingLocation = this.state.landingLocation;
     const pointOfInterest = {
       key: positionTagKey,
       ...this.state.places[positionTagKey],

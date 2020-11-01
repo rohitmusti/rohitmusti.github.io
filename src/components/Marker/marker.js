@@ -1,4 +1,4 @@
-import { Marker, Popup } from "react-leaflet";
+import { Marker } from "react-leaflet";
 import { Component } from "react";
 import L from "leaflet";
 import locationPin from "../../assets/icons8-map-pin-100.png";
