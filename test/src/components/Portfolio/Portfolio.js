@@ -29,7 +29,9 @@ class Portfolio extends Component {
           </p>
           <p>
             <strong>
-              <a href={currentProj.link}>Link</a>
+              <a href={currentProj.link} style={{ color: "red" }}>
+                Link
+              </a>
             </strong>{" "}
             to the project!
           </p>
@@ -46,7 +48,12 @@ class Portfolio extends Component {
           title="Portfolio of Projects"
           subTitle="This is a list of my favorite projects. If you are interested in seeing more, checkout my github!"
           extra={[
-            <Button type="danger" key="3" href="https://github.com/rohitmusti">
+            <Button
+              type="danger"
+              style={{ color: "white" }}
+              key="3"
+              href="https://github.com/rohitmusti"
+            >
               My Github
             </Button>,
           ]}
