@@ -38,6 +38,8 @@ class Home extends Component {
 
   onMoveHandler(event) {
     console.log(`current center: ${event.target.getCenter()}`);
+    console.log(`current zoom: ${event.target.getZoom()}`);
+    // this.setState(zoom: event.target.getZoom)
     return event.target.getCenter();
   }
 
@@ -81,7 +83,7 @@ class Home extends Component {
       <Fragment>
         <Card
           className="navTile"
-          title="Hi, My name is Rohit!"
+          title="Hi, my name is Rohit!"
           extra={
             <a href="https://rohitmusti.github.io/resume/rmusti_resume.pdf">
               My Resume
@@ -90,14 +92,15 @@ class Home extends Component {
         >
           <p>
             Click on the various pop ups to learn a little bit more about my
-            life! Try{" "}
+            life. Try{" "}
             <a onClick={() => this.onIconClickHandler("Cincinnati")}>
               starting here
             </a>
+            .
           </p>
           <p>
             Check out my portfolio of projects{" "}
-            <a href="https://rohitmusti.github.io/portfolio">here</a>{" "}
+            <a href="https://rohitmusti.github.io/portfolio">here</a>.
           </p>
         </Card>
         {this.state.currentPointOfInterest && (
@@ -105,13 +108,7 @@ class Home extends Component {
             className="interestTile"
             title={`${this.capitalize(this.state.currentPointOfInterest.key)}`}
           >
-            <p>
-              {this.state.currentPointOfInterest.description}{" "}
-              {this.state.currentPointOfInterest.order ===
-              Object.keys(this.state.places).length - 1
-                ? "true"
-                : "false"}
-            </p>
+            <p>{this.state.currentPointOfInterest.description} </p>
             {
               <Button
                 disabled={
