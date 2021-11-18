@@ -28,6 +28,7 @@ const Home: NextPage = () => {
             href="https://americanforests.org/"
             target="_blank"
             className="underline"
+            rel="noreferrer"
           >
             American Forests
           </a>{" "}
@@ -36,15 +37,17 @@ const Home: NextPage = () => {
             href="https://treeequityscore.org"
             target="_blank"
             className="underline"
+            rel="noreferrer"
           >
             Tree Equity Score
           </a>{" "}
-          to fruition. Next Spring (2022), I'll begin teching an undergraduate
-          course on Cryptography through the{" "}
+          to fruition. Next Spring (2022), I&apos;ll begin teching an
+          undergraduate course on Cryptography through the{" "}
           <a
             href="https://www.techtalentpipeline.nyc/tech-in-residence-corps#:~:text=The%20Tech%2Din%2DResidence%20Corps,need%20to%20enter%20the%20workforce.&text=Tech%2Din%2DResidence%20Corps%20members,next%20generation%20of%20NYC%20students."
             target="_blank"
             className="underline"
+            rel="noreferrer"
           >
             Tech in Residence Corps
           </a>{" "}

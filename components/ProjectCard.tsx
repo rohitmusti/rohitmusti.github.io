@@ -1,6 +1,21 @@
 import { link, project_entry } from "components/projects";
 import { Fragment } from "react";
 
+function ProjectLink(props: { link: link }) {
+  return (
+    <li>
+      <a
+        href={props.link.link}
+        className="underline text-sm hover:text-red-400"
+        target="_blank"
+        rel="noreferrer"
+      >
+        {props.link.name}
+      </a>
+    </li>
+  );
+}
+
 export default function ProjectCard(props: {
   project: project_entry;
   index: number;
@@ -14,16 +29,7 @@ export default function ProjectCard(props: {
           <p className="font-semibold text-sm">Project Links</p>
           <ul>
             {props.project.project_link.map((project_link: link, i) => {
-              return (
-                <li>
-                  <a
-                    href={project_link.link}
-                    className="underline text-sm hover:text-red-400"
-                  >
-                    {project_link.name}
-                  </a>
-                </li>
-              );
+              return <ProjectLink link={project_link} key={i} />;
             })}
           </ul>
         </Fragment>
@@ -34,7 +40,7 @@ export default function ProjectCard(props: {
           <ul>
             {props.project.code_link.map((project_link: link, i) => {
               return (
-                <li>
+                <li key={i}>
                   <a
                     href={project_link.link}
                     className="underline text-sm hover:text-red-400"

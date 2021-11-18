@@ -9,6 +9,7 @@ const Contact: NextPage = () => {
           <a
             href="https://linkedin.com/in/rohitmusti/"
             target="_blank"
+            rel="noreferrer"
             className="underline"
           >
             Linked In
@@ -19,6 +20,7 @@ const Contact: NextPage = () => {
           <a
             href="https://github.com/rohitmusti"
             target="_blank"
+            rel="noreferrer"
             className="underline"
           >
             Github

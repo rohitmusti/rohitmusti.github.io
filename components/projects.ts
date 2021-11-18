@@ -117,7 +117,6 @@ export const projects: project_entry[] = [
     title: "Red Hat Wifi Connection Tool",
     description:
       "As an intern, I noticed that I and several of my fellow interns had trouble accessing the corporate wifi. I built this quick tool and instructions for adding to one's commandline to make connecting to the wifi easier! This is a bit a small and silly project, but it felt good to solve a direct need.",
-    project_link: [],
     code_link: [
       {
         name: "Wifi Tool Source Code",

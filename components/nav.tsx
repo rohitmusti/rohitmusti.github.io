@@ -1,4 +1,5 @@
 type linkType = { url: string; text: string };
+import Link from "next/Link";
 
 export default function Nav() {
   const navLinks = [
@@ -11,18 +12,17 @@ export default function Nav() {
       {" "}
       <div className="flex justify-beginning">
         <h1 className="text-red-400 font-bold text-md sm:text-xl pl-3">
-          <a href="/">Rohit Musti</a>
+          <Link href="/">Rohit Musti</Link>
         </h1>
       </div>
       <div className="flex justify-end">
-        {navLinks.map((navLink: linkType) => {
+        {navLinks.map((navLink: linkType, i: number) => {
           return (
-            <a
-              href={navLink.url}
-              className="font-bold hover:underline text-md sm:text-xl text-red-400 px-1"
-            >
-              {navLink.text}
-            </a>
+            <Link href={navLink.url} key={i}>
+              <button className="font-bold hover:underline text-md sm:text-xl text-red-400 px-1">
+                {navLink.text}
+              </button>
+            </Link>
           );
         })}
       </div>

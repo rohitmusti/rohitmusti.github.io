@@ -6,7 +6,7 @@ const Projects: NextPage = () => {
   return (
     <div className="p-8 text-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       {projects.map((project, i) => {
-        return <ProjectCard index={i} project={project} />;
+        return <ProjectCard key={i} index={i} project={project} />;
       })}
     </div>
   );
