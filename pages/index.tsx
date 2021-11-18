@@ -7,8 +7,8 @@ const myLoader = ({ src }: { src: string }) => {
 
 const Home: NextPage = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between">
-      <div className="p-8 justify-end md:w-1/2">
+    <div className="flex flex-col md:flex-row justify-between justify-items-center">
+      <div className="p-8 justify-center md:w-1/2">
         <Image
           loader={myLoader}
           src="climbing.png"

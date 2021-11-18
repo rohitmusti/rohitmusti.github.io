@@ -12,7 +12,8 @@ const Contact: NextPage = () => {
             className="underline"
           >
             Linked In
-          </a>
+          </a>{" "}
+          for my professional history.
         </li>
         <li>
           <a
@@ -21,7 +22,8 @@ const Contact: NextPage = () => {
             className="underline"
           >
             Github
-          </a>
+          </a>{" "}
+          for my code!
         </li>
       </ul>
     </div>
