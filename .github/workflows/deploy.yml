@@ -27,12 +27,14 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    - run: yarn install
-    - run: yarn build
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@3.6.2
+    - name: Install
+      run: yarn install
+    - name: Build
+      run: yarn build
+    - uses: JamesIves/github-pages-deploy-action@3.6.1
       with:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: public # The folder the action should deploy.
-        CLEAN: true # Automatically remove deleted files from the deploy branch
+        BRANCH: gh-pages
+        FOLDER: public
+        CLEAN: true
+    
