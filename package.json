@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o out/ && git add -f out/ && git commit -m 'Deploy Next.js to gh-pages' && git subtree push --force --prefix out origin gh-pages",
+    "build": "next build && next export -o out/ && git add -f out/ && git commit -m 'Deploy Next.js to gh-pages' && git subtree push --prefix out origin gh-pages",
     "start": "next start",
     "lint": "next lint"
   },
