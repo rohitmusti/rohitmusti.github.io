@@ -55,8 +55,8 @@ const Home: NextPage = () => {
         </p>
         <p>
           Outside of work, I enjoy learning the ins and outs of bike maintenance
-          by volunteering at my local free bike clinic. I also rock climbing,
-          tennis, and chess.
+          by volunteering at my local free bike clinic in the farmers market. I
+          also enjoy rock climbing, tennis, and chess.
         </p>
       </div>
     </div>
