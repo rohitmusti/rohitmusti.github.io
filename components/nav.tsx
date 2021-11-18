@@ -1,5 +1,5 @@
 type linkType = { url: string; text: string };
-import Link from "next/Link";
+import Link from "next/link";
 
 export default function Nav() {
   const navLinks = [
