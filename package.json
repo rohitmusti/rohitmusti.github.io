@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o out/ && cd out/ && git init && git add ./ && git commit -m 'Deploy Next.js to gh-pages' && git remote add origin git@github.com:rohitmusti/rohitmusti.github.io.git && git push origin HEAD:gh-pages --force && cd ../ && rm -rf out/",
+    "build": "next build && next export -o out/ && touch ./out/.nojekyll &&  cd out/ && git init && git add ./ && git commit -m 'Deploy Next.js to gh-pages' && git remote add origin git@github.com:rohitmusti/rohitmusti.github.io.git && git push origin HEAD:gh-pages --force && cd ../ && rm -rf out/ ",
     "start": "next start",
     "lint": "next lint"
   },
