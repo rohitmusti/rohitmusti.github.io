@@ -10,6 +10,27 @@ export type project_entry = {
 };
 export const projects: project_entry[] = [
   {
+    title: "Introduction to Cryptography",
+    description:
+      "I have begun teaching an Introduction to Cryptography class through the Tech-in-Residence Corps at CUNY - Hunter College. It has been a joy to re-discover my love for cryptography through this experience and it has been enjoyable to step up my teaching skills to run an entire course on my own for the first time.",
+    project_link: [
+      {
+        name: "Course Website",
+        link: "https://rohitmusti.github.io/intro-to-crypto/",
+      },
+      {
+        name: "Course Github",
+        link: "https://github.com/rohitmusti/intro-to-crypto",
+      },
+    ],
+    code_link: [
+      {
+        name: "Course Github",
+        link: "https://github.com/rohitmusti/intro-to-crypto",
+      },
+    ],
+  },
+  {
     title: "Tree Equity Score",
     description:
       "The Tree Equity Score represents a novel approach to urban forestry, creating an index that combines tree canopy with demographic and economic data to measure how equitably trees are distributed. I wrote all of the code used to calculate the score and built the applications that serve it!",
