@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .blog-content > h2 {
+    @apply font-bold;
+    @apply mt-6;
+  }
+  .blog-content > p {
+    @apply mt-6;
+  }
+}
+
 html,
 body {
   background-color: black;

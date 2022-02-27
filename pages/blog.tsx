@@ -27,11 +27,11 @@ export default function Blog({ posts }) {
       {posts.map(({ slug, frontmatter }) => (
         <div
           key={slug}
-          className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
+          className="border-2 border-white m-2 rounded-lg flex flex-col"
         >
           <Link href={`/blog/${slug}`}>
             <a>
-              <h1 className="p-2">{frontmatter.title}</h1>
+              <h1 className="font-semibold p-2">{frontmatter.title}</h1>
             </a>
           </Link>
           <p className="p-2">Date: {frontmatter.date}</p>

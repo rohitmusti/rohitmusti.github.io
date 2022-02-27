@@ -6,7 +6,7 @@ import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="bg-black w-full h-full md:w-screen md: h-screen text-white">
+    <div className="dark w-full h-full md:w-screen md: h-screen text-white">
       <Nav />
       <Component {...pageProps} />
     </div>

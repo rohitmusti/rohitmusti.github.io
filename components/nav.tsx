@@ -5,6 +5,7 @@ export default function Nav() {
   const navLinks = [
     { text: "About", url: "/" },
     { text: "Projects", url: "/projects" },
+    { text: "Blog", url: "/blog" },
     { text: "Contact", url: "/contact" },
   ];
   return (

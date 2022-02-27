@@ -1,6 +1,7 @@
 import fs from "fs";
 import md from "markdown-it";
 import matter from "gray-matter";
+import ReactMarkdown from "react-markdown";
 
 export async function getStaticPaths() {
   const files = fs.readdirSync("blog");
@@ -28,9 +29,17 @@ export async function getStaticProps({ params: { slug } }) {
 
 export default function PostPage({ frontmatter, content }) {
   return (
-    <div className="prose mx-auto">
+    <div className="prose dark:prose-invert mx-auto max-w-2xl py-4">
       <h1>{frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+      <p>Date Created: {frontmatter.date}</p>
+      <div className="">
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </div>
+      <hr />
+      <p>
+        See an error in this blog? Please reach out through my contact page and
+        I'll make a correction!
+      </p>
     </div>
   );
 }
