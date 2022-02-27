@@ -1,5 +1,4 @@
 import fs from "fs";
-import md from "markdown-it";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
@@ -16,7 +15,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({
+  params: { slug },
+}: {
+  params: { slug: any };
+}) {
   const fileName = fs.readFileSync(`blog/${slug}.md`, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
   return {
@@ -27,7 +30,13 @@ export async function getStaticProps({ params: { slug } }) {
   };
 }
 
-export default function PostPage({ frontmatter, content }) {
+export default function PostPage({
+  frontmatter,
+  content,
+}: {
+  frontmatter: { title: string; date: any };
+  content: any;
+}) {
   return (
     <div className="prose dark:prose-invert mx-auto max-w-2xl py-4">
       <h1>{frontmatter.title}</h1>
@@ -38,7 +47,7 @@ export default function PostPage({ frontmatter, content }) {
       <hr />
       <p>
         See an error in this blog? Please reach out through my contact page and
-        I'll make a correction!
+        I will make a correction!
       </p>
     </div>
   );

@@ -21,7 +21,11 @@ export async function getStaticProps() {
   };
 }
 
-export default function Blog({ posts }) {
+export default function Blog({
+  posts,
+}: {
+  posts: [{ slug: string; frontmatter: { date: string; title: string } }];
+}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0">
       {posts.map(({ slug, frontmatter }) => (
