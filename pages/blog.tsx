@@ -30,17 +30,17 @@ export default function Blog({
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0">
       {posts.map(({ slug, frontmatter }) => (
-        <Link href={`/blog/${slug}`}>
-          <div
-            key={slug}
-            className="border-2 border-white m-2 rounded-lg flex flex-col hover:bg-red-700"
-          >
+        <div
+          key={slug}
+          className="border-2 border-white m-2 rounded-lg flex flex-col hover:bg-red-700"
+        >
+          <Link href={`/blog/${slug}`}>
             <a>
               <h1 className="font-semibold p-2">{frontmatter.title}</h1>
             </a>
             <p className="p-2">Date: {frontmatter.date}</p>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );
