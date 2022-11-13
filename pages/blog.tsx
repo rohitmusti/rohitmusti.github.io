@@ -38,8 +38,8 @@ export default function Blog({
             <a>
               <h1 className="font-semibold p-2">{frontmatter.title}</h1>
             </a>
-            <p className="p-2">Date: {frontmatter.date}</p>
           </Link>
+          <p className="p-2">Date: {frontmatter.date}</p>
         </div>
       ))}
     </div>
