@@ -1,5 +1,5 @@
 ---
-title: "Valiating Databse Migrations"
+title: "Validating Database Migrations"
 date: "2024-10-16"
 ---
 
