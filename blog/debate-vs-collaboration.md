@@ -92,8 +92,3 @@ In software teams, that mindset often ignores something more valuable: trust, gr
 This experience reminded me that the best engineers I’ve worked with didn’t argue me into correctness; they guided me toward understanding.
 That’s the kind of engineer I want to be: someone who leaves others better, not just systems faster.
 
-## TLDR
-
-- debate is for sharpening ideas
-- collaboration is for building alignment
-- great engineers know when to switch from one to the other
