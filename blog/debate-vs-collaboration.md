@@ -3,12 +3,11 @@ title: "Debate vs Collaboration"
 date: "2025-10-11"
 ---
 
-I recently learned an important lesson: while debate is a valuable thinking tool, it is not a useful tool for building consensus.
+I recently learned an important lesson: debate is valuable for thinking, not for building consensus.
 
 ## Background
-
-I was reviewing a design from a teammate who proposed a change to our data model. 
-At the time, we represented a one-to-many relationship in SQL — each borg belongs to one zorg, and each zorg can have many borgs.
+I was reviewing a teammate's design to update our data model. 
+We had a one-to-many relationship in SQL between borgs and zorgs (each borg belongs to one zorg, each zorg can have many borgs).
 
 ```
 ZORGS
@@ -21,7 +20,8 @@ name: str
 zorg_id: str | None, FK
 ```
 
-Their goal was to let a borg be associated with multiple zorgs. These “associated zorgs” were special; different from the primary zorgs we normally store in that users would manually create these relationships.
+Their goal was to associated a single borg with multiple zorgs. 
+These “associated zorgs” were special, users would manually create these relationships, and that needed to be reflected in the data model.
 
 ## The Proposal
 
@@ -53,7 +53,7 @@ Three things stood out to me:
 
 
 A join table felt like a more natural and durable model.
-But when I raised these points, my teammate pushed back — they believed the GIN index would mitigate the performance concern and that the simplicity was worth it.
+But when I raised these points, my teammate pushed back, they believed the GIN index would mitigate the performance concern and that the simplicity was worth it.
 
 ## The Turning Point
 
@@ -89,6 +89,12 @@ Growing up, I was taught to optimize for being right.
 Less emphasis was placed on maintaining positive working relationships; after all, as kids most conflicts dissolved after an hour of four square or basketball.
 In software teams, that mindset often ignores something more valuable: trust, growth, and collaboration.
 
-This experience reminded me that the best engineers I’ve worked with didn’t argue me into correctness; they guided me toward understanding.
-That’s the kind of engineer I want to be: someone who leaves others better, not just systems faster.
+This realization (that design review has many purposes beyond identifying and proceeding with the most technically optimal solution) has fundamentally changed how I think about design review. 
+Now, my design review checklist includes (1) how technically sound is this design, (2) what evidence have we produced to prove this is the most sound design, and (3) what are some skills the engineer completing this design might be able to exercise/build as a part of this design review that will serve them well into the future.
+These apply to my own designs as well! 
+I want to make sure I'm exercising all of the muscles relevant to each design to make sure I stay sharp and am growing in my own skills.
+Items 2 and 3 and new to my checklist after this experience and they come from my values of trust, respect, and continuous learning.
+
+This experience reminded me that the best engineers don't argue me into correctness; they guide me toward understanding.
+That’s the kind of engineer I want to be: someone who leaves others better and systems faster.
 
