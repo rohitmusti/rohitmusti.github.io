@@ -57,6 +57,20 @@ export default function Blog({ posts }: { posts: Post[] }) {
       } else if (e.key === "h" || e.key === "Escape") {
         e.preventDefault();
         router.push("/");
+      } else if (e.key >= "1" && e.key <= "9") {
+        // Numbers 1-9 map to posts 1-9
+        const index = parseInt(e.key) - 1;
+        if (index < posts.length) {
+          setSelectedPost(index);
+          router.push(`/blog/${posts[index].slug}`);
+        }
+      } else if (e.key >= "a" && e.key <= "z") {
+        // Letters a-z map to posts 10-35 (a=10, b=11, etc.)
+        const index = e.key.charCodeAt(0) - 97 + 9; // 'a' is 97, so 'a' -> 9 (10th post, 0-indexed)
+        if (index < posts.length) {
+          setSelectedPost(index);
+          router.push(`/blog/${posts[index].slug}`);
+        }
       }
     };
 
@@ -102,39 +116,46 @@ export default function Blog({ posts }: { posts: Post[] }) {
 
           {/* Blog Posts List */}
           <div className="space-y-1">
-            {posts.map((post, index) => (
-              <Link href={`/blog/${post.slug}`} key={post.slug}>
-                <a
-                  onMouseEnter={() => setSelectedPost(index)}
-                  className={`block px-3 py-3 rounded transition-all ${
-                    selectedPost === index
-                      ? "bg-navy-800 border-l-4 border-gold-500"
-                      : "border-l-4 border-transparent hover:bg-navy-800/50"
-                  }`}
-                >
-                  <div className="flex items-start gap-3">
-                    <span className={`text-xs mt-1 ${selectedPost === index ? "text-gold-400" : "text-slate-500"}`}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className="flex-1">
-                      <div className={`font-semibold mb-1 ${selectedPost === index ? "text-gold-400" : "text-slate-300"}`}>
-                        {post.frontmatter.title}
-                      </div>
-                      <div className="text-xs text-slate-500 mb-1">
-                        {new Date(post.frontmatter.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })}
-                      </div>
-                      <div className="text-xs text-slate-400 line-clamp-2">
-                        {post.excerpt}...
+            {posts.map((post, index) => {
+              // Display shortcut key: 1-9 for first 9, then a-z for 10+
+              const shortcutKey = index < 9
+                ? String(index + 1)
+                : String.fromCharCode(97 + index - 9); // a, b, c, etc.
+
+              return (
+                <Link href={`/blog/${post.slug}`} key={post.slug}>
+                  <a
+                    onMouseEnter={() => setSelectedPost(index)}
+                    className={`block px-3 py-3 rounded transition-all ${
+                      selectedPost === index
+                        ? "bg-navy-800 border-l-4 border-gold-500"
+                        : "border-l-4 border-transparent hover:bg-navy-800/50"
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className={`text-xs mt-1 font-mono ${selectedPost === index ? "text-gold-400" : "text-slate-500"}`}>
+                        [{shortcutKey}]
+                      </span>
+                      <div className="flex-1">
+                        <div className={`font-semibold mb-1 ${selectedPost === index ? "text-gold-400" : "text-slate-300"}`}>
+                          {post.frontmatter.title}
+                        </div>
+                        <div className="text-xs text-slate-500 mb-1">
+                          {new Date(post.frontmatter.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })}
+                        </div>
+                        <div className="text-xs text-slate-400 line-clamp-2">
+                          {post.excerpt}...
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
-              </Link>
-            ))}
+                  </a>
+                </Link>
+              );
+            })}
           </div>
 
           <div className="border-t border-navy-700 pt-4"></div>
@@ -150,7 +171,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
 
           {/* Help Text */}
           <div className="pt-2 text-xs text-slate-500 border-t border-navy-700">
-            <div>💡 Navigation: ↑↓ to select | Enter to read | h/ESC to go home</div>
+            <div>💡 Navigation: ↑↓ to select | Enter to read | 1-9/a-z for quick access | h/ESC to go home</div>
           </div>
         </div>
       </div>
