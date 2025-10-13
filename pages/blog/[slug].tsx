@@ -81,15 +81,13 @@ export default function PostPage({
               // Custom components for better styling
               code: ({ node, inline, className, children, ...props }: any) => {
                 return inline ? (
-                  <code className="font-mono text-sm bg-navy-800 px-2 py-1 rounded text-gold-300" {...props}>
+                  <code {...props}>
                     {children}
                   </code>
                 ) : (
-                  <pre className="bg-navy-800 rounded-lg p-4 overflow-x-auto my-6 border border-navy-700">
-                    <code className="font-mono text-sm text-slate-200" {...props}>
-                      {children}
-                    </code>
-                  </pre>
+                  <code className="block" {...props}>
+                    {children}
+                  </code>
                 );
               },
               a: ({ node, children, href, ...props }: any) => (
