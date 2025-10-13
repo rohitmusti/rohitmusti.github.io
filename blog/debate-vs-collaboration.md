@@ -95,6 +95,10 @@ These apply to my own designs as well!
 I want to make sure I'm exercising all of the muscles relevant to each design to make sure I stay sharp and am growing in my own skills.
 Items 2 and 3 and new to my checklist after this experience and they come from my values of trust, respect, and continuous learning.
 
+Debate has a valuable place in design reviews: it challenges our assumptions and strengthens ideas. 
+But when we lose sight of higher goals like collaboration and alignment, debate can easily become discouraging, especially for engineers who are still building confidence. 
+Debate is useful only when it leads us toward better ideas together and collaboration often gets us there faster.
+
 This experience reminded me that the best engineers don't argue me into correctness; they guide me toward understanding.
 That’s the kind of engineer I want to be: someone who leaves others better and systems faster.
 
