@@ -11,13 +11,13 @@ rubbed me the wrong way.
 
 ### The Asymmetry
 
-My best framing I have for this is: when you dispatch a bot to ask me for a
+The best framing I have for this is: when you dispatch a bot to ask me for a
 status update, I hear two things at once.
 
 1. It is not worth your time to gather this information.
 2. It is required that I spend my time providing it.
 
-That asymmetry is what makes me uncomfortable. A push mode, me posting an async
+That asymmetry is what makes me uncomfortable. A push model, me posting an async
 update on my own cadence at some point on Wednesday, feels fine. A pull model
 where another human asks me is fine, often welcome. But a bot that was created
 by someone else to remind me every single week? That feels like micromanaging me
@@ -25,9 +25,9 @@ in a way that devalues my work.
 
 ### Effort to Value Ratio
 
-A friend pointed out this generalizes. All communication as a ratio: the effort
+A friend pointed out this generalizes. All communication has a ratio: the effort
 the asker spent gathering a response divided by the value of the response to them.
-When the asker's effort is near zero but the respondant's effort is material,
+When the asker's effort is near zero but the respondent's effort is material,
 something feels off. The ratio is off and I think it is what I am reacting to.
 
 ### The Ladder
@@ -37,11 +37,11 @@ from "high effort, high signal" to "no effort, no signal," and each rung
 trades effort for convenience.
 
 1. **You DM each person individually.** This is high touch/effort and high signal.
-   The effort you put in as the asker is less than the respondant's effort, but
+   The effort you put in as the asker is less than the respondent's effort, but
    they are in balance. This is a high human and high respect interaction.
 2. **You send one message to a shared channel and engage with every reply**.
    This is less personal, but still high effort and high signal. There is even
-   the benefit that people see eachother's responses (a nice network effect).
+   the benefit that people see each other's responses (a nice network effect).
 3. **A bot posts the message weekly and you reliably respond and engage in the
    thread alongside everyone else.** You have automated the prompt but remained
    in the conversation. This is fine as long as the engagement holds, but you
@@ -50,8 +50,8 @@ trades effort for convenience.
    teammates might as well respond with their own bots that paste in their jira
    tickets and statuses. At that point, why not just use Jira?
 
-The rungs are less a bout the bot, they are about whether you, the person asking
-for the information, are willing to spend any effort in gather in the information,
+The rungs are less about the bot, they are about whether you, the person asking
+for the information, are willing to spend any effort in gathering the information,
 matching the effort you are asking of others.
 
 ### The Same Pattern in Pull Requests
