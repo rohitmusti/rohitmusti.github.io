@@ -31,9 +31,12 @@
     @apply mt-4 mb-4 text-lg text-slate-200 leading-relaxed;
   }
 
-  .blog-content > ul,
+  .blog-content > ul {
+    @apply mt-4 mb-4 ml-6 text-slate-200 list-disc;
+  }
+
   .blog-content > ol {
-    @apply mt-4 mb-4 ml-6 text-slate-200;
+    @apply mt-4 mb-4 ml-6 text-slate-200 list-decimal;
   }
 
   .blog-content > ul > li,
