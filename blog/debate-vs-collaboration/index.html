@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><link rel="preload" href="/_next/static/css/a6dda896d0cdecfb.css" as="style"/><link rel="stylesheet" href="/_next/static/css/a6dda896d0cdecfb.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-514908bffb652963.js" defer=""></script><script src="/_next/static/chunks/framework-0633aeb74b8e723b.js" defer=""></script><script src="/_next/static/chunks/main-4490bbe9dbbf9e9f.js" defer=""></script><script src="/_next/static/chunks/pages/_app-1892c421d1d6a171.js" defer=""></script><script src="/_next/static/chunks/928-ceba0777716f36f5.js" defer=""></script><script src="/_next/static/chunks/pages/blog/%5Bslug%5D-67dfa81da10b855c.js" defer=""></script><script src="/_next/static/lduswnr9w_pyHkwKY4AKX/_buildManifest.js" defer=""></script><script src="/_next/static/lduswnr9w_pyHkwKY4AKX/_ssgManifest.js" defer=""></script><script src="/_next/static/lduswnr9w_pyHkwKY4AKX/_middlewareManifest.js" defer=""></script></head><body><div id="__next"><div class="min-h-screen text-slate-100"><main class="container mx-auto px-4 max-w-7xl"><div class="py-8 md:py-12 animate-fade-in"><div class="mb-8"><a class="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors duration-200" href="/blog/"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>Back to Blog</a></div><article class="mx-auto max-w-3xl"><header class="mb-12 pb-8 border-b border-navy-700"><h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold-400 to-terracotta-400 bg-clip-text text-transparent mb-4 leading-tight">Debate vs Collaboration</h1><div class="flex items-center gap-4 text-slate-400 font-mono text-sm"><div class="flex items-center gap-2"><span class="text-terracotta-500">📅</span><time>October 10, 2025</time></div></div></header><div class="blog-content"><p>Most engineering cultures value debate.
+We celebrate strong opinions, lively design reviews, and sharp technical arguments.
+Debate sharpens our ideas, but if left unchecked, it can also fracture alignment, erode trust, and slow down decision-making.</p>
+<p>Over time, I’ve learned that debate has its place, but its purpose is often misunderstood.
+Debate helps us think better; collaboration helps us build better.</p>
+<p>This distinction sounds subtle, but at scale, it is the difference between teams that argue well and teams that learn fast.</p>
+<h2>Case Study</h2>
+<p>A teammate&#x27;s design proposed a schema change in how we model relationships between zorgs and borgs.
+Historically, this was a one-to-many relationship:</p>
+<pre><code class="block">ZORGS
+id: str
+name: str
+
+BORGS
+id: str
+name: str
+zorg_id: str | None, FK
+</code></pre>
+<p>A new feature required associating each borg with multiple zorgs.
+There was an additional requirement that we tracked these new one borg to many zorg relationships (manually created) as different than one zorg to many borg relationships (automatically created).</p>
+<p>The proposal suggested that we add a <code>associated_zorg_ids</code> to the <code>borg</code> table.</p>
+<pre><code class="block">ZORGS
+id: ULID
+name: str
+
+BORGS
+id: ULID
+name: str
+zorg_id: str | None, FK
+associated_zorg_ids: str[], GIN idx
+</code></pre>
+<p>At first glance, it was pragmatic: minimal schema change, easy to query, easy to deploy.
+But the design triggered a debate: the usual tension between lightweight now and durable later.</p>
+<h3>My Initial Concerns</h3>
+<p>Three things stood out to me:</p>
+<ol>
+<li><strong>Performance</strong>: queries that join between <code>borgs</code> and <code>zorgs</code> are common, array membership checks (even with a GIN index) would likely be slower.</li>
+<li><strong>Clarity</strong>: having both <code>zorg_id</code> and <code>associated_zorg_ids</code> complicates reasoning and analytics.</li>
+<li><strong>Extensibility:</strong> future requirements might evolve into true many-to-many relationships between borgs and zorgs.</li>
+</ol>
+<p>A join table felt like a more natural and durable model.
+But when I raised these points, my teammate pushed back, they believed the GIN index would mitigate the performance concern and that the simplicity was worth it.</p>
+<h3>The Turning Point</h3>
+<p>At that moment, I geared up for a debate, a habit from my old high school mock trial days.
+Then, I paused.</p>
+<p>Instead of letting it spiral into a contest of technical rhetoric, I reframed the goal: “Let’s figure out what’s true, not who’s right.”</p>
+<h3>A Collaborative Path</h3>
+<p>I first acknowledged their reasoning: that in theory, GIN indexes can perform well for certain lookups.
+Then we paired up to explore the codebase together.</p>
+<p>We looked at where these tables were joined and how often those joins appeared in our highest-traffic paths. That discovery made the performance requirement clear.</p>
+<p>My teammate admitted they didn’t know how to test for query performance.
+So I showed them an approach I&#x27;ve used before: filling a local database with tens of millions of rows and analyzing queries with <a href="https://explain.dalibo.com/" class="text-gold-400 hover:text-gold-300 underline decoration-gold-500/50 hover:decoration-gold-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">https://explain.dalibo.com/</a>, a tool my manager had shown me.</p>
+<p>They took it from there, writing scripts, running benchmarks, and analyzing query plans.
+The results were decisive:</p>
+<ul>
+<li>The join-table approach was 2–3 orders of magnitude faster than the array-based lookup.</li>
+<li>GIN-indexed writes were measurably slower.</li>
+<li>They also surfaced insights I hadn’t even raised like write amplification on GIN indexes.</li>
+</ul>
+<p>Together, we concluded that a proper join table, with metadata about the borg–zorg relationship, was the most sustainable solution.
+We aligned, not because one argument won, but because a shared investigation produced shared conviction.</p>
+<h2>Reflection</h2>
+<p>Growing up, I was taught to optimize for being right.
+Less emphasis was placed on maintaining positive working relationships; after all, as kids most conflicts dissolved after an hour of four square or basketball.
+In software teams, that mindset often ignores something more valuable: trust, growth, and collaboration.</p>
+<p>This story isn’t about one schema decision. It exposed something larger about how I approach disagreement.</p>
+<p>In healthy engineering organizations, debate surfaces options, but collaboration aligns direction.
+When we confuse one for the other, design reviews can become performative: high-signal but low-progress.
+The fix isn’t “less debate.” It’s ensuring debate serves its true purpose: to explore possibilities, not to assign correctness.
+That shift transforms design reviews from places where opinions collide into spaces where understanding compounds.</p>
+<p>As organizations grow, they accumulate more smart people — and with that, more potential for debate.
+Without intentional design, the organization can start to optimize for argument density instead of decision velocity.
+If our default is “debate until consensus,” we bias toward delay.
+If our default is “collaborate until clarity,” we bias toward alignment.</p>
+<p>The strongest engineers I’ve worked with don’t win design reviews. They create environments where everyone learns faster; where debate sharpens thought, collaboration builds trust, and alignment multiplies velocity.</p>
+<p>That’s the kind of engineer I’m still learning to be.</p></div><footer class="mt-16 pt-8 border-t border-navy-700"><div class="bg-navy-900 border border-navy-700 rounded-lg p-6"><p class="text-slate-300 leading-relaxed mb-4">See an error in this blog? Please reach out through my<!-- --> <a class="text-gold-400 hover:text-gold-300 underline decoration-peacock-500/50 hover:decoration-peacock-400 transition-colors duration-200" href="/contact/">contact page</a> <!-- -->and I&#x27;ll make a correction!</p><div class="flex flex-wrap gap-3"><a class="btn-secondary inline-block" href="/blog/">← More Posts</a><a class="btn-secondary inline-block" href="/">Home</a></div></div></footer></article></div></main></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"frontmatter":{"title":"Debate vs Collaboration","date":"2025-10-11"},"content":"\nMost engineering cultures value debate. \nWe celebrate strong opinions, lively design reviews, and sharp technical arguments. \nDebate sharpens our ideas, but if left unchecked, it can also fracture alignment, erode trust, and slow down decision-making.\n\nOver time, I’ve learned that debate has its place, but its purpose is often misunderstood.\nDebate helps us think better; collaboration helps us build better.\n\nThis distinction sounds subtle, but at scale, it is the difference between teams that argue well and teams that learn fast.\n\n## Case Study\nA teammate's design proposed a schema change in how we model relationships between zorgs and borgs. \nHistorically, this was a one-to-many relationship:\n\n```\nZORGS\nid: str\nname: str\n\nBORGS\nid: str\nname: str\nzorg_id: str | None, FK\n```\n\nA new feature required associating each borg with multiple zorgs.\nThere was an additional requirement that we tracked these new one borg to many zorg relationships (manually created) as different than one zorg to many borg relationships (automatically created). \n\nThe proposal suggested that we add a `associated_zorg_ids` to the `borg` table.\n\n```\nZORGS\nid: ULID\nname: str\n\nBORGS\nid: ULID\nname: str\nzorg_id: str | None, FK\nassociated_zorg_ids: str[], GIN idx\n```\n\nAt first glance, it was pragmatic: minimal schema change, easy to query, easy to deploy. \nBut the design triggered a debate: the usual tension between lightweight now and durable later.\n\n### My Initial Concerns\n\nThree things stood out to me:\n1. **Performance**: queries that join between `borgs` and `zorgs` are common, array membership checks (even with a GIN index) would likely be slower.\n2. **Clarity**: having both `zorg_id` and `associated_zorg_ids` complicates reasoning and analytics.\n3. **Extensibility:** future requirements might evolve into true many-to-many relationships between borgs and zorgs. \n\n\nA join table felt like a more natural and durable model.\nBut when I raised these points, my teammate pushed back, they believed the GIN index would mitigate the performance concern and that the simplicity was worth it.\n\n### The Turning Point\n\nAt that moment, I geared up for a debate, a habit from my old high school mock trial days.\nThen, I paused.\n\nInstead of letting it spiral into a contest of technical rhetoric, I reframed the goal: “Let’s figure out what’s true, not who’s right.”\n\n### A Collaborative Path\n\nI first acknowledged their reasoning: that in theory, GIN indexes can perform well for certain lookups. \nThen we paired up to explore the codebase together.\n\nWe looked at where these tables were joined and how often those joins appeared in our highest-traffic paths. That discovery made the performance requirement clear.\n\nMy teammate admitted they didn’t know how to test for query performance. \nSo I showed them an approach I've used before: filling a local database with tens of millions of rows and analyzing queries with [https://explain.dalibo.com/](https://explain.dalibo.com/), a tool my manager had shown me.\n\nThey took it from there, writing scripts, running benchmarks, and analyzing query plans. \nThe results were decisive:\n- The join-table approach was 2–3 orders of magnitude faster than the array-based lookup.\n- GIN-indexed writes were measurably slower.\n- They also surfaced insights I hadn’t even raised like write amplification on GIN indexes.\n\nTogether, we concluded that a proper join table, with metadata about the borg–zorg relationship, was the most sustainable solution.\nWe aligned, not because one argument won, but because a shared investigation produced shared conviction.\n\n## Reflection\n\nGrowing up, I was taught to optimize for being right.\nLess emphasis was placed on maintaining positive working relationships; after all, as kids most conflicts dissolved after an hour of four square or basketball.\nIn software teams, that mindset often ignores something more valuable: trust, growth, and collaboration.\n\nThis story isn’t about one schema decision. It exposed something larger about how I approach disagreement.\n\nIn healthy engineering organizations, debate surfaces options, but collaboration aligns direction.\nWhen we confuse one for the other, design reviews can become performative: high-signal but low-progress.\nThe fix isn’t “less debate.” It’s ensuring debate serves its true purpose: to explore possibilities, not to assign correctness.\nThat shift transforms design reviews from places where opinions collide into spaces where understanding compounds.\n\nAs organizations grow, they accumulate more smart people — and with that, more potential for debate.\nWithout intentional design, the organization can start to optimize for argument density instead of decision velocity.\nIf our default is “debate until consensus,” we bias toward delay. \nIf our default is “collaborate until clarity,” we bias toward alignment.\n\nThe strongest engineers I’ve worked with don’t win design reviews. They create environments where everyone learns faster; where debate sharpens thought, collaboration builds trust, and alignment multiplies velocity.\n\nThat’s the kind of engineer I’m still learning to be.\n"},"__N_SSG":true},"page":"/blog/[slug]","query":{"slug":"debate-vs-collaboration"},"buildId":"lduswnr9w_pyHkwKY4AKX","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
