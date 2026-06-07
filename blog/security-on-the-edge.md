@@ -3,13 +3,13 @@ title: "Security on the Edge"
 date: "2023-01-17"
 ---
 
-As a software engineer at [Read AI](https://read.ai/), I recently had the opportunity to design an authenticaction system for accessing video recordings served through AWS Cloudfront. I was incredibly excited to apply my skills as a cryptographer to this real world problem. This is the sort of real world problem that I had spent hours trying to simulate through homework assignments I created for my students. To any other cryptography instructors, feel free to use the brief!
+As a software engineer at [Read AI](https://read.ai/), I recently had the opportunity to design an authentication system for accessing video recordings served through AWS Cloudfront. I was incredibly excited to apply my skills as a cryptographer to this real world problem. This is the sort of real world problem that I had spent hours trying to simulate through homework assignments I created for my students. To any other cryptography instructors, feel free to use the brief!
 
 ## Prompt
 
 You are a software engineer at start up.
 You need to serve a video recording through AWS Cloudfront.
-The benefit of serving through a CDN is that it ensures caching in global regions so that all of our cutomers have speedy video streaming! Your system should prserve this performance benefit.
+The benefit of serving through a CDN is that it ensures caching in global regions so that all of our cutomers have speedy video streaming! Your system should preserve this performance benefit.
 
 1. We also only want only customers to be able to load the recordings of videos they are authorized for.
 1. The system needs to also preserve as much of the original speed of the cache as possible
@@ -24,7 +24,7 @@ The customer can then hit our recordings end point and present the token. We the
 
 ## Cryptographic Primtives
 
-This is a HMAC system. If you are interested in learning more about HMAC systems, check out my slides from a [cryptography class](https://rohitmusti.github.io/intro-to-crypto/) I taught at CUNY. We do leak information about the information inside of the token - the recording id and expiration datetime - but none of that information is secret. Additionally, the point of the system is to make sure the user authenticated to our system. not to hide information contained in the token. The security system guarantees that we at Read AI issued the token allowing the bearer to access a specific recording for an allotted period of time. Therefore, only authorized users can access a recording. This system is also stateless, it only relies upon access to a secret key and doesn't require any database calls. This makes it very fast.
+This is a HMAC system. If you are interested in learning more about HMAC systems, check out my slides from a [cryptography class](https://rohitmusti.github.io/intro-to-crypto/) I taught at CUNY. We do leak information about the token - the recording id and expiration datetime - but none of that information is secret. Additionally, the point of the system is to make sure the user authenticated to our system. not to hide information contained in the token. The security system guarantees that we at Read AI issued the token allowing the bearer to access a specific recording for an allotted period of time. Therefore, only authorized users can access a recording. This system is also stateless, it only relies upon access to a secret key and doesn't require any database calls. This makes it very fast.
 
 ## Did we meet the brief?
 
