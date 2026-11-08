@@ -29,7 +29,7 @@ Artificial Intelligence has created a path to a new way to write software that r
 
 ## The role of software engineers
 
-Will these systems be perfectly elegant mechanisms? No, they will be a little messy and require guidance. It will be extremely difficult to define the behaviors correctly and put the right guardrails in place.
+Will these systems be perfectly elegant mechanisms? No, they will be a little messy and require guidance. It will be extremely difficult to define the behaviors correctly and put the right guardrails in place. Sometimes, behavioral correctness is insufficient and we require an even higher standard of mechanical guarantees or maybe even formal verification of systems through proof style statements.
 
 I don't think there is zero role for humans (see my post on fluency as the final frontier), but I think we need to evolve and free ourselves from this minutae and think on a larger scale. I am early in my personal journey and exploration of this idea, but I'm excited for the types of problems I'll be able to confront as I get better are delegating minutae to the agents.
 
